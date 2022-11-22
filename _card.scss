@@ -1,0 +1,62 @@
+.card {
+  position: absolute;
+  width: 78%;
+
+  span {
+    position: absolute;
+  }
+}
+
+.card__img {
+  width: 100%;
+}
+
+.card--back {
+  top: 30px;
+  right: 15px;
+}
+
+.card__cvc {
+  top: 44%;
+  right: 13%;
+  font-size: 10px;
+  color: $background;
+  letter-spacing: 1px;
+}
+
+.card--front {
+  top: 120px;
+  left: 15px;
+}
+
+.card__logo {
+  position: absolute;
+  top: 10%;
+  left: 7%;
+  width: 18%;
+}
+
+.card__number {
+  top: 54%;
+  left: 7%;
+  color: $background;
+  font-size: 18px;
+  letter-spacing: 3px;
+}
+
+.card__name {
+  bottom: 15%;
+  left: 7%;
+  font-size: 10px;
+  color: $light;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.card__exp {
+  bottom: 15%;
+  right: 7%;
+  font-size: 10px;
+  color: $light;
+  letter-spacing: 0.1rem;
+}

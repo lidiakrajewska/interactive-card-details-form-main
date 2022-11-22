@@ -1,0 +1,58 @@
+@media screen and (min-width: 1440px) {
+  main {
+    display: flex;
+  }
+
+  .visuals {
+    flex: 1;
+  }
+
+  .information,
+  .thank-you {
+    flex: 2;
+  }
+
+  .background-img {
+    height: 100%;
+    width: auto;
+    content: url("./images/bg-main-desktop.png");
+  }
+
+  .card {
+    width: Min(90%, 600px);
+  }
+
+  .card--back {
+    top: 50%;
+    left: Max(15vw, 280px);
+  }
+
+  .card__cvc {
+    top: 45%;
+    font-size: 13px;
+  }
+
+  .card--front {
+    top: 20%;
+    left: Max(10vw, 220px);
+  }
+
+  .card__number {
+    font-size: 27px;
+  }
+
+  .card__name {
+    font-size: 13px;
+  }
+
+  .card__exp {
+    font-size: 13px;
+  }
+
+  .information__form,
+  .thank-you-wrapper {
+    width: Min(40%, 500px);
+    margin-top: 0;
+    margin-left: 4rem;
+  }
+}

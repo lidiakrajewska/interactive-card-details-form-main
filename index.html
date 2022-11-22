@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Frontend Mentor | Interactive card details form</title>
+  </head>
+  <body>
+    <main>
+      <div class="visuals">
+        <img src="./images/bg-main-mobile.png" alt="" class="background-img" />
+        <div class="card card--back">
+          <img src="./images/bg-card-back.png" alt="" class="card__img" />
+          <span class="card__cvc"></span>
+        </div>
+        <div class="card card--front">
+          <img src="./images/bg-card-front.png" alt="" class="card__img" />
+          <img src="./images/card-logo.svg" alt="" class="card__logo" />
+          <span class="card__number"></span>
+          <span class="card__name"></span>
+          <span class="card__exp"></span>
+        </div>
+      </div>
+      <div class="information">
+        <form class="information__form">
+          <label for="name">Cardholder Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="e.g. Jane Appleseed"
+            class="input"
+            required
+          />
+          <span class="error" id="name-error"></span>
+          <label for="card-num">Card Number</label>
+          <input
+            type="text"
+            name="card-num"
+            id="card-num"
+            placeholder="e.g. 1234 5678 9123 0000"
+            class="input"
+            required
+          />
+          <span class="error" id="card-num-error"></span>
+          <div class="input-wrapper">
+            <div class="input-inner-wrapper">
+              <label for="exp-date-mm">Exp. Date (MM/YY)</label>
+              <input
+                type="text"
+                name="exp-date-mm"
+                id="exp-date-mm"
+                placeholder="MM"
+                class="input input--short"
+                required
+              />
+              <input
+                type="text"
+                name="exp-date-yy"
+                id="exp-date-yy"
+                placeholder="YY"
+                class="input input--short"
+                required
+              />
+              <span class="error" id="date-error"></span>
+            </div>
+            <div class="input-inner-wrapper">
+              <label for="cvc">CVC</label>
+              <input
+                type="text"
+                name="cvc"
+                id="cvc"
+                placeholder="e.g. 123"
+                class="input"
+                required
+              />
+              <span class="error" id="cvc-error"></span>
+            </div>
+          </div>
+          <button class="main-button submit-btn">Confirm</button>
+        </form>
+      </div>
+      <div class="thank-you hidden">
+        <div class="thank-you-wrapper">
+          <img src="./images/icon-complete.svg" alt="" />
+          <h1 class="title">Thank you!</h1>
+          <p class="text">We've added your card details</p>
+          <button class="main-button continue-btn">Continue</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="attribution">
+      <p>
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://www.frontendmentor.io/profile/lidiakrajewska"
+          >Lidia Krajewska</a
+        >.
+      </p>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

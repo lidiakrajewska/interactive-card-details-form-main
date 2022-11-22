@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.visuals {
+  position: relative;
+  width: 100%;
+}
+
+.background-img {
+  width: 100%;
+}
+
+.attribution {
+  width: 90%;
+  margin: 0.5rem auto;
+  font-size: 0.8rem;
+  text-align: center;
+  color: $medium;
+  a {
+    color: $medium;
+  }
+}

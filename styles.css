@@ -1,0 +1,290 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.visuals {
+  position: relative;
+  width: 100%;
+}
+
+.background-img {
+  width: 100%;
+}
+
+.attribution {
+  width: 90%;
+  margin: 0.5rem auto;
+  font-size: 0.8rem;
+  text-align: center;
+  color: #8e8593;
+}
+
+.attribution a {
+  color: #8e8593;
+}
+
+.information,
+.thank-you {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 60vh;
+}
+
+.information__form,
+.thank-you-wrapper {
+  width: 90%;
+  margin-top: 5rem;
+}
+
+.information__form label,
+.thank-you-wrapper label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: #21092f;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-weight: 500;
+}
+
+.input-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.input-inner-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.input {
+  margin-bottom: 0.2rem;
+  padding: 0.8rem;
+  width: 100%;
+  font-family: "Space Grotesk", sans-serif;
+  border: 2px #dedddf solid;
+  border-radius: 10px;
+}
+
+.input::-webkit-input-placeholder {
+  font-size: 1.1rem;
+  font-family: "Space Grotesk", sans-serif;
+  color: #8e8593;
+}
+
+.input:-ms-input-placeholder {
+  font-size: 1.1rem;
+  font-family: "Space Grotesk", sans-serif;
+  color: #8e8593;
+}
+
+.input::-ms-input-placeholder {
+  font-size: 1.1rem;
+  font-family: "Space Grotesk", sans-serif;
+  color: #8e8593;
+}
+
+.input::placeholder {
+  font-size: 1.1rem;
+  font-family: "Space Grotesk", sans-serif;
+  color: #8e8593;
+}
+
+.input:focus {
+  outline: none;
+  border: 2px #21092f solid;
+}
+
+.input--short {
+  width: 46%;
+}
+
+.error {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  font-size: 0.7rem;
+  color: #ff5252;
+  font-weight: 500;
+}
+
+.error-input {
+  border-color: #ff5252;
+}
+
+.error-input:focus {
+  border: 2px #ff5252 solid;
+}
+
+.main-button {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+  background: #21092f;
+  color: white;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+}
+
+.thank-you-wrapper {
+  text-align: center;
+}
+
+.title {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  color: #21092f;
+  font-size: 1.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+
+.text {
+  margin-bottom: 2rem;
+  color: #8e8593;
+  font-size: 1.1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.card {
+  position: absolute;
+  width: 78%;
+}
+
+.card span {
+  position: absolute;
+}
+
+.card__img {
+  width: 100%;
+}
+
+.card--back {
+  top: 30px;
+  right: 15px;
+}
+
+.card__cvc {
+  top: 44%;
+  right: 13%;
+  font-size: 10px;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.card--front {
+  top: 120px;
+  left: 15px;
+}
+
+.card__logo {
+  position: absolute;
+  top: 10%;
+  left: 7%;
+  width: 18%;
+}
+
+.card__number {
+  top: 54%;
+  left: 7%;
+  color: white;
+  font-size: 18px;
+  letter-spacing: 3px;
+}
+
+.card__name {
+  bottom: 15%;
+  left: 7%;
+  font-size: 10px;
+  color: #dedddf;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.card__exp {
+  bottom: 15%;
+  right: 7%;
+  font-size: 10px;
+  color: #dedddf;
+  letter-spacing: 0.1rem;
+}
+
+@media screen and (min-width: 1440px) {
+  main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .visuals {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  .information,
+  .thank-you {
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+  }
+  .background-img {
+    height: 100%;
+    width: auto;
+    content: url("./images/bg-main-desktop.png");
+  }
+  .card {
+    width: Min(90%, 600px);
+  }
+  .card--back {
+    top: 50%;
+    left: Max(15vw, 280px);
+  }
+  .card__cvc {
+    top: 45%;
+    font-size: 13px;
+  }
+  .card--front {
+    top: 20%;
+    left: Max(10vw, 220px);
+  }
+  .card__number {
+    font-size: 27px;
+  }
+  .card__name {
+    font-size: 13px;
+  }
+  .card__exp {
+    font-size: 13px;
+  }
+  .information__form,
+  .thank-you-wrapper {
+    width: Min(40%, 500px);
+    margin-top: 0;
+    margin-left: 4rem;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,106 @@
+.information,
+.thank-you {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.information__form,
+.thank-you-wrapper {
+  width: 90%;
+  margin-top: 5rem;
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    color: $darkest;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-weight: 500;
+  }
+}
+
+.input-wrapper {
+  display: flex;
+}
+
+.input-inner-wrapper {
+  flex: 1;
+}
+
+.input {
+  margin-bottom: 0.2rem;
+  padding: 0.8rem;
+  width: 100%;
+  font-family: $font;
+  border: 2px $light solid;
+  border-radius: 10px;
+
+  &::placeholder {
+    font-size: 1.1rem;
+    font-family: $font;
+    color: $medium;
+  }
+
+  &:focus {
+    outline: none;
+    border: 2px $darkest solid;
+  }
+}
+
+.input--short {
+  width: 46%;
+}
+
+.error {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  font-size: 0.7rem;
+  color: $error;
+  font-weight: 500;
+}
+
+.error-input {
+  border-color: $error;
+  &:focus {
+    border: 2px $error solid;
+  }
+}
+
+.main-button {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+  background: $darkest;
+  color: $background;
+  font-family: $font;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+}
+
+.thank-you-wrapper {
+  text-align: center;
+}
+
+.title {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  color: $darkest;
+  font-size: 1.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+
+.text {
+  margin-bottom: 2rem;
+  color: $medium;
+  font-size: 1.1rem;
+}
+
+.hidden {
+  display: none;
+}
