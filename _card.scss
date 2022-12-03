@@ -1,7 +1,6 @@
 .card {
   position: absolute;
-  width: 78%;
-
+  width: Min(78%, 380px);
   span {
     position: absolute;
   }

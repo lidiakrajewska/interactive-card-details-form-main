@@ -8,10 +8,7 @@ This is a solution to the [Interactive card details form challenge on Frontend M
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
   - [Links](#links)
-- [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
 - [Author](#author)
 
 ## Overview
@@ -29,14 +26,13 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Desktop view](./images/Screenshot.png)
+![Error messages](./images/Screenshot-error.png)
 
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
-
-## My process
 
 ### Built with
 
@@ -45,12 +41,6 @@ Users should be able to:
 - Flexbox
 - Mobile-first workflow
 - Javascript ES6
-
-### What I learned
-
-### Continued development
-
-Tablet view is messy!
 
 ## Author
 

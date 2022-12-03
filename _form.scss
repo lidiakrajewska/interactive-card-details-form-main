@@ -8,7 +8,7 @@
 
 .information__form,
 .thank-you-wrapper {
-  width: 90%;
+  width: Min(90%, 500px);
   margin-top: 5rem;
 
   label {

@@ -108,6 +108,7 @@ submitBtn.addEventListener("click", (e) => {
     num.classList.remove("error-input");
   }
   // Date input
+  let dateCorrect;
   if (expMm.value === "") {
     dateError.innerHTML = "Can't be blank";
     expMm.classList.add("error-input");
@@ -123,6 +124,7 @@ submitBtn.addEventListener("click", (e) => {
   } else {
     dateError.innerHTML = "";
     expMm.classList.remove("error-input");
+    dateCorrect = true;
   }
   if (expYy.value === "") {
     dateError.innerHTML = "Can't be blank";
@@ -136,8 +138,10 @@ submitBtn.addEventListener("click", (e) => {
     expYy.classList.add("error-input");
     correct = false;
   } else {
-    dateError.innerHTML = "";
     expYy.classList.remove("error-input");
+    if (dateCorrect) {
+      dateError.innerHTML = "";
+    }
   }
   // CVC input
   if (cvc.value === "") {

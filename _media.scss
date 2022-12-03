@@ -1,4 +1,11 @@
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 750px) {
+  .card--back {
+    right: 20%;
+  }
+
+  .card--front {
+    left: 20%;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -8,6 +15,10 @@
 
   .visuals {
     flex: 1;
+  }
+
+  .background-img {
+    max-height: 100vh;
   }
 
   .information,
