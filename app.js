@@ -22,69 +22,96 @@ const cvcError = document.querySelector("#cvc-error");
 
 clearInputs();
 
-// Updating info on the card image
+// Updating info on the card image and fromatting input
 fullName.addEventListener("input", () => {
   cardName.innerHTML = fullName.value;
 });
 
 num.addEventListener("input", () => {
-  cardNumber.innerHTML = num.value;
+  updateCardNum();
 });
+num.addEventListener("change", () => {
+  num.value = num.value.replaceAll(" ", "");
+  num.value = num.value.replace(/(.{4})/g, "$1 ");
+  updateCardNum();
+});
+function updateCardNum() {
+  cardNumber.innerHTML = num.value;
+}
 
 expMm.addEventListener("input", () => {
-  if (expYy.value === "") {
-    cardExp.innerHTML = expMm.value + "/00";
-  } else {
-    cardExp.innerHTML = expMm.value + "/" + expYy.value;
+  updateDate();
+});
+expMm.addEventListener("change", () => {
+  if (expMm.value.length == 1) {
+    expMm.value = "0" + expMm.value;
   }
+  updateDate();
+});
+expYy.addEventListener("input", () => {
+  updateDate();
+});
+expYy.addEventListener("change", () => {
+  if (expYy.value.length == 1) {
+    expYy.value = "0" + expYy.value;
+  }
+  updateDate();
 });
 
-expYy.addEventListener("input", () => {
-  if (expMm.value === "") {
+function updateDate() {
+  if (expYy.value === "") {
+    cardExp.innerHTML = expMm.value + "/00";
+  } else if (expMm.value === "") {
     cardExp.innerHTML = "00/" + expYy.value;
   } else {
     cardExp.innerHTML = expMm.value + "/" + expYy.value;
   }
-});
+}
 
 cvc.addEventListener("input", () => {
   cardCvc.innerHTML = cvc.value;
 });
 
-// Checking the inputs
-fullName.addEventListener("input", () => {
+// Submitting the form
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  let correct = true;
+  // Checking if input info is correct and not missing
+  // Name input
   if (fullName.value === "") {
     nameError.innerHTML = "Can't be blank";
     fullName.classList.add("error-input");
+    correct = false;
   } else {
     nameError.innerHTML = "";
     fullName.classList.remove("error-input");
   }
-});
-
-num.addEventListener("input", () => {
+  // Card number input
   if (num.value === "") {
     cardNumError.innerHTML = "Can't be blank";
     num.classList.add("error-input");
+    correct = false;
   } else if (!Number.isInteger(parseInt(num.value))) {
     cardNumError.innerHTML = "Wrong format, numbers only";
     num.classList.add("error-input");
-  } else if (num.value.length > 16) {
+    correct = false;
+  } else if (num.value.replaceAll(" ", "").length > 16) {
     cardNumError.innerHTML = "Wrong card number, too long";
     num.classList.add("error-input");
-  } else if (num.value.length < 16) {
+    correct = false;
+  } else if (num.value.replaceAll(" ", "").length < 16) {
     cardNumError.innerHTML = "Wrong card number, too short";
     num.classList.add("error-input");
+    correct = false;
   } else {
     cardNumError.innerHTML = "";
     num.classList.remove("error-input");
   }
-});
-
-expMm.addEventListener("input", () => {
+  // Date input
   if (expMm.value === "") {
     dateError.innerHTML = "Can't be blank";
     expMm.classList.add("error-input");
+    correct = false;
   } else if (
     !Number.isInteger(parseInt(expMm.value)) ||
     expMm.value < 1 ||
@@ -92,54 +119,56 @@ expMm.addEventListener("input", () => {
   ) {
     dateError.innerHTML = "Date incorrect";
     expMm.classList.add("error-input");
+    correct = false;
   } else {
     dateError.innerHTML = "";
     expMm.classList.remove("error-input");
   }
-});
-
-expYy.addEventListener("input", () => {
   if (expYy.value === "") {
     dateError.innerHTML = "Can't be blank";
     expYy.classList.add("error-input");
+    correct = false;
   } else if (
     !Number.isInteger(parseInt(expYy.value)) ||
     expYy.value.length > 2
   ) {
     dateError.innerHTML = "Date incorrect (MM/YY)";
     expYy.classList.add("error-input");
+    correct = false;
   } else {
     dateError.innerHTML = "";
     expYy.classList.remove("error-input");
   }
-});
-
-cvc.addEventListener("input", () => {
+  // CVC input
   if (cvc.value === "") {
     cvcError.innerHTML = "Can't be blank";
     cvc.classList.add("error-input");
+    correct = false;
   } else if (!Number.isInteger(parseInt(cvc.value))) {
     cvcError.innerHTML = "Incorrect value, numbers only";
     cvc.classList.add("error-input");
+    correct = false;
   } else if (cvc.value.length < 3) {
     cvcError.innerHTML = "Too short";
     cvc.classList.add("error-input");
+    correct = false;
   } else if (cvc.value.length > 3) {
     cvcError.innerHTML = "Too long";
     cvc.classList.add("error-input");
+    correct = false;
   } else {
     cvcError.innerHTML = "";
     cvc.classList.remove("error-input");
   }
+
+  // Displaying thank you message
+  if (correct) {
+    information.classList.add("hidden");
+    thankYou.classList.remove("hidden");
+  }
 });
 
-// Displaying thank you message
-submitBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  information.classList.add("hidden");
-  thankYou.classList.remove("hidden");
-});
-
+// Allowing to enter another card info
 continueBtn.addEventListener("click", () => {
   information.classList.remove("hidden");
   thankYou.classList.add("hidden");
@@ -156,3 +185,85 @@ function clearInputs() {
   cardName.innerHTML = "Jane Appleseed";
   cardExp.innerHTML = "00/00";
 }
+
+// Checking the inputs
+// fullName.addEventListener("input", () => {
+//   if (fullName.value === "") {
+//     nameError.innerHTML = "Can't be blank";
+//     fullName.classList.add("error-input");
+//   } else {
+//     nameError.innerHTML = "";
+//     fullName.classList.remove("error-input");
+//   }
+// });
+
+// num.addEventListener("input", () => {
+//   if (num.value === "") {
+//     cardNumError.innerHTML = "Can't be blank";
+//     num.classList.add("error-input");
+//   } else if (!Number.isInteger(parseInt(num.value))) {
+//     cardNumError.innerHTML = "Wrong format, numbers only";
+//     num.classList.add("error-input");
+//   } else if (num.value.length > 16) {
+//     cardNumError.innerHTML = "Wrong card number, too long";
+//     num.classList.add("error-input");
+//   } else if (num.value.length < 16) {
+//     cardNumError.innerHTML = "Wrong card number, too short";
+//     num.classList.add("error-input");
+//   } else {
+//     cardNumError.innerHTML = "";
+//     num.classList.remove("error-input");
+//   }
+// });
+
+// expMm.addEventListener("input", () => {
+//   if (expMm.value === "") {
+//     dateError.innerHTML = "Can't be blank";
+//     expMm.classList.add("error-input");
+//   } else if (
+//     !Number.isInteger(parseInt(expMm.value)) ||
+//     expMm.value < 1 ||
+//     expMm.value > 12
+//   ) {
+//     dateError.innerHTML = "Date incorrect";
+//     expMm.classList.add("error-input");
+//   } else {
+//     dateError.innerHTML = "";
+//     expMm.classList.remove("error-input");
+//   }
+// });
+
+// expYy.addEventListener("input", () => {
+//   if (expYy.value === "") {
+//     dateError.innerHTML = "Can't be blank";
+//     expYy.classList.add("error-input");
+//   } else if (
+//     !Number.isInteger(parseInt(expYy.value)) ||
+//     expYy.value.length > 2
+//   ) {
+//     dateError.innerHTML = "Date incorrect (MM/YY)";
+//     expYy.classList.add("error-input");
+//   } else {
+//     dateError.innerHTML = "";
+//     expYy.classList.remove("error-input");
+//   }
+// });
+
+// cvc.addEventListener("input", () => {
+//   if (cvc.value === "") {
+//     cvcError.innerHTML = "Can't be blank";
+//     cvc.classList.add("error-input");
+//   } else if (!Number.isInteger(parseInt(cvc.value))) {
+//     cvcError.innerHTML = "Incorrect value, numbers only";
+//     cvc.classList.add("error-input");
+//   } else if (cvc.value.length < 3) {
+//     cvcError.innerHTML = "Too short";
+//     cvc.classList.add("error-input");
+//   } else if (cvc.value.length > 3) {
+//     cvcError.innerHTML = "Too long";
+//     cvc.classList.add("error-input");
+//   } else {
+//     cvcError.innerHTML = "";
+//     cvc.classList.remove("error-input");
+//   }
+// });

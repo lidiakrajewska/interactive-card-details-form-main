@@ -50,7 +50,7 @@ Users should be able to:
 
 ### Continued development
 
-Formatting form fields and not allowing to submit form when any of them are blank.
+Tablet view is messy!
 
 ## Author
 
